@@ -62,6 +62,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             cursor: pointer;
             text-decoration: none;
         }
+        .show{
+            background-color: #004f00;
+            padding: 30%;
+            color: #adf175;
+        }
     </style>
 
 
@@ -86,10 +91,33 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <body>
 
     <div class="MID">
+
+        
         <?php
         
+            include 'Connection.php';
         
-        ?>
+            // Query to show total employees
+            $employees_query = "SELECT COUNT(*) as total_employees FROM employees";
+            $employees_result = $conn->query($employees_query);
+            $row_employees = $employees_result->fetch_assoc();
+            $total_employees = $row_employees['total_employees'];
+
+            // Query to show total customers
+            $customers_query = "SELECT COUNT(*) as total_customers FROM customers";
+            $customers_result = $conn->query($customers_query);
+            $row_customers = $customers_result->fetch_assoc();
+            $total_customers = $row_customers['total_customers'];
+
+            // Close connection
+            $conn->close();
+            ?>
+        
+        <div class="show">
+            <h1>Total Employees: <?php echo $total_employees; ?></h1>
+            <h1>Total Customers: <?php echo $total_customers; ?></h1>
+        </div>
+        
 
     </div>
 
