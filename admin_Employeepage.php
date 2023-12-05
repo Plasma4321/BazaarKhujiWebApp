@@ -136,7 +136,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <?php
     include 'Connection.php';
     // SQL QUERY 
-    $query = "SELECT * FROM `employees`;"; 
+    $query = "SELECT * FROM `market_representative` "; 
     // FETCHING DATA FROM DATABASE 
     $result = $conn->query($query); 
     
@@ -223,7 +223,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         $employeeIDToDelete = $_POST["deleteEmployeeID"];
     
         // Performing the delete operation
-        $deleteQuery = "DELETE FROM `employees` WHERE EmployeeID = $employeeIDToDelete";
+        $deleteQuery = "DELETE FROM `market_representative` WHERE EmployeeID = $employeeIDToDelete";
         if ($conn->query($deleteQuery) === TRUE) {
             echo "Employee with ID $employeeIDToDelete deleted successfully.";
         } else {

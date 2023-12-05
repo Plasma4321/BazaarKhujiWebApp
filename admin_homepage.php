@@ -97,11 +97,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         
             include 'Connection.php';
         
-            // Query to show total employees
-            $employees_query = "SELECT COUNT(*) as total_employees FROM employees";
-            $employees_result = $conn->query($employees_query);
-            $row_employees = $employees_result->fetch_assoc();
-            $total_employees = $row_employees['total_employees'];
+            // Query to show total representatives
+            $market_representative_query = "SELECT COUNT(*) as total_market_representative FROM market_representative";
+            $market_representative_result = $conn->query($market_representative_query);
+            $row_market_representative = $market_representative_result->fetch_assoc();
+            $total_market_representative = $row_market_representative['total_market_representative'];
 
             // Query to show total customers
             $customers_query = "SELECT COUNT(*) as total_customers FROM customers";
@@ -114,7 +114,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             ?>
         
         <div class="show">
-            <h1>Total Employees: <?php echo $total_employees; ?></h1>
+            <h1>Total Representatives: <?php echo $total_market_representative; ?></h1>
             <h1>Total Customers: <?php echo $total_customers; ?></h1>
         </div>
         
@@ -137,6 +137,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </footer>
     
-    
+
 </body>
 </html>
