@@ -106,7 +106,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 <h1>DISPLAYING</h1>
 
-
+<!-- ADDING SCRIPT + ADDING VIEW -->
 <?php
     include "Connection.php";
 
@@ -157,6 +157,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <h1>VIEW CURRENT PRODUCTS</h1>
 
+<!-- VIEW SCRIPT -->
     <?php
 
         include "Connection.php";
@@ -185,7 +186,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         $conn->close();
     ?>
 
-    
+
+<h1>DELETE PRODUCT FROM CURRENT BAZAAR</h1>
+
+<!-- DELETE SCRIPT inside file-->
+<form method="POST" action="delete_product.php">
+    <label for="productID">Product ID:</label><br>
+    <input type="text" id="productID" name="productID"><br>
+    <input type="hidden" id="bazaarID" name="bazaarID" value="<?php echo $_GET['bazaarID']; ?>">
+    <input type="submit" value="Delete Product">
+</form>
 </body>
 </html>
 
