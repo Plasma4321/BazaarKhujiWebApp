@@ -98,6 +98,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             cursor: pointer;
             text-decoration: none;
         }
+        a{
+            color: red;
+        }
     </style>
 
 
@@ -141,22 +144,25 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             echo "<table>";
             echo "<tr><th>BazaarID</th><th>BazaarName</th><th>BazaarLocation</th><th>RepresentativeName</th><th>BazaarImage</th></tr>";
             while($row = $result->fetch_assoc()) {
+                
                 echo "<tr>";
-                echo "<td>" . $row["bazaarID"] . "</td>";
+                echo "<td><a href='view_bazaar.php?bazaarID=" . $row["bazaarID"] . "'>" . $row["bazaarID"] . "</a></td>";//Will TakeME toAPage
                 echo "<td>" . $row["bazaarname"] . "</td>";
                 echo "<td>" . $row["bazaarlocation"] . "</td>";
                 echo "<td>" . $row["Name"] . "</td>";
                 echo "<td><img src='" . $row["bazaarIMG"] . "' width='200' height='150'></td>";
+
                 echo "</tr>";
             }
             echo "</table>";
         } else {
             echo '<h2 style="
-                color: red;
-                background: url(\'Meow.jpg\') center/cover no-repeat;
-                text-align: center;
-                padding: 50px;"
-                >No results found</h2>';
+                        color: red;
+                        background: url(\'Meow.jpg\') center/cover no-repeat;
+                        text-align: center;
+                        padding: 50px;">
+                        No results found
+                </h2>';
         }
 
         $conn->close();
