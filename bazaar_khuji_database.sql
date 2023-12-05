@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 10:11 AM
+-- Generation Time: Dec 05, 2023 at 12:58 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,8 +51,17 @@ CREATE TABLE `bazaar` (
   `bazaarID` int(11) NOT NULL,
   `bazaarname` varchar(255) DEFAULT NULL,
   `bazaarlocation` varchar(255) DEFAULT NULL,
-  `EmployeeID` int(11) DEFAULT NULL
+  `EmployeeID` int(11) DEFAULT NULL,
+  `bazaarIMG` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bazaar`
+--
+
+INSERT INTO `bazaar` (`bazaarID`, `bazaarname`, `bazaarlocation`, `EmployeeID`, `bazaarIMG`) VALUES
+(8, 'tah', 'aa', 10, 0x75706c6f6164732f4661696c2e706e67),
+(11, 'asdasd', 'ggg', 5, 0x75706c6f6164732f73746f702e6a7067);
 
 -- --------------------------------------------------------
 
@@ -188,7 +197,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `bazaar`
 --
 ALTER TABLE `bazaar`
-  MODIFY `bazaarID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bazaarID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `customers`
