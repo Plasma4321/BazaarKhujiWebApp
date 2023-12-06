@@ -204,7 +204,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     
     
     <h2 style="text-align:center;">DELETE EMPLOYEE</h2>
-    <form action="" method="post" >
+
+    <!-- DELETION SCRIPT inside file-->
+    <form action="delete_employee.php" method="post" >
         <div style="text-align:center;">
             <label for="deleteEmployeeID">EmployeeID to Delete:</label>
             <input type="text" id="deleteEmployeeID" name="deleteEmployeeID" required>
@@ -212,23 +214,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         </div>
     </form>
 
-    <!-- DELETION SCRIPT -->
-    <?php
-    include 'Connection.php';
     
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["deleteEmployeeID"])) {
-        $employeeIDToDelete = $_POST["deleteEmployeeID"];
-    
-        // Performing the delete operation
-        $deleteQuery = "DELETE FROM `market_representative` WHERE EmployeeID = $employeeIDToDelete";
-        if ($conn->query($deleteQuery) === TRUE) {
-            echo "Employee with ID $employeeIDToDelete deleted successfully.";
-        } else {
-            echo "Error deleting record: " . $conn->error;
-        }
-    }
-    $conn->close();
-    ?>
+
 
 
     <footer>
