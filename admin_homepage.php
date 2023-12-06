@@ -18,6 +18,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body{
             margin: 0;
+            background-color:#cdf784;
             
         }
         .LOGOSECTION{
@@ -64,7 +65,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
         .show{
             background-color: #004f00;
-            padding: 30%;
+            padding: 20%;
+            text-align:center;
             color: #adf175;
         }
     </style>

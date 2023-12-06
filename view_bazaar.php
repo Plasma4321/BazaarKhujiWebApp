@@ -19,6 +19,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         body{
             margin: 0;
             text-align:center;
+            background-color:#cdf784;
             
         }
         .LOGOSECTION{
@@ -67,6 +68,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         form{
             margin-top:20px;
             color: red;
+            font-weight: bold;
         }
         form input{
             color: green;
@@ -77,11 +79,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             
         }
         button{
-            padding 5px;
-            background-color:cyan; 
-            border-radius:5px; 
+            padding: 6px;
+            background-color:#40e200; 
+            border-radius:10px; 
             width:100px;
-
+            color:white;
+            border-color: #adf175;
         }
 
         .social-box {
@@ -142,14 +145,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     // Form for adding a new product
     echo "<h2>Add a new product</h2>
       <form action='add_product.php' method='post' enctype='multipart/form-data'>
-        <input type='hidden' name='bazaarID'
-         value='$bazaarID'>
-        Product Name: <input type='text' name='productName'>
+        <input type='hidden' name='bazaarID' value='$bazaarID'>
+        Product Name: <input type='text' name='productName' required>
         <br>
-        Product Picture: <input type='file' name='productPicture' accept='.jpg,.png,.gif'><br>
-        Product Price: <input type='text' name='productPrice'>
+        Product Picture: <input type='file' name='productPicture' accept='.jpg,.png,.gif' required>
         <br>
-        <input type='submit' value='Add'>
+        Product Price: <input type='text' name='productPrice' required>
+        <br>
+        <button type='submit'>Add Bazaar</button>
       </form>";
 
       $conn->close();
@@ -192,10 +195,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 <!-- DELETE SCRIPT inside file-->
 <form method="POST" action="delete_product.php">
     <label for="productID">Product ID:</label><br>
-    <input type="text" id="productID" name="productID"><br>
+    <input type="text" id="productID" name="productID" required><br>
     <input type="hidden" id="bazaarID" name="bazaarID" value="<?php echo $_GET['bazaarID']; ?>">
-    <input type="submit" value="Delete Product">
+    <button type="submit">Delete Product</button>
 </form>
+
 </body>
 </html>
 

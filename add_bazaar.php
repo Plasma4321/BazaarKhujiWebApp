@@ -8,11 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bazaarLocation = htmlspecialchars($_POST['bazaarLocation']);
     $employeeID = htmlspecialchars($_POST['employeeID']);
 
-    // Validate form data (add more validation as needed)
-    if (empty($bazaarName) || empty($bazaarLocation) || empty($employeeID)) {
-        die("Please fill in all required fields.");
-    }
-
     // Check if the employee ID exists in the database
     $sql = "SELECT * FROM market_representative WHERE EmployeeID = ?";
     $stmt = $conn->prepare($sql);

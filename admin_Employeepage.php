@@ -20,6 +20,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body{
             margin: 0;
+            background-color:#cdf784;
         }
         .LOGOSECTION{
             text-align: center;
@@ -85,6 +86,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
         form{
             color: red;
+            font-weight: bold;
         }
         form input{
             color: green;
@@ -95,11 +97,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             
         }
         button{
-            padding 5px;
-            background-color:cyan; 
-            border-radius:5px; 
+            padding: 6px;
+            background-color:#40e200; 
+            border-radius:10px; 
             width:100px;
-
+            color:white;
+            border-color: #adf175;
         }
         
     

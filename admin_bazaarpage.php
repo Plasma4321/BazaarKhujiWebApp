@@ -18,7 +18,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body{
             margin: 0;
-            
+            background-color:#cdf784;
         }
         .LOGOSECTION{
             text-align: center;
@@ -67,6 +67,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         form{
             margin-top:20px;
             color: red;
+            font-weight: bold;
         }
         form input{
             color: green;
@@ -74,14 +75,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             margin-bottom:5px;
         }
         form label{
-            
+
         }
         button{
-            padding 5px;
-            background-color:cyan; 
-            border-radius:5px; 
+            padding: 6px;
+            background-color:#40e200; 
+            border-radius:10px; 
             width:100px;
-
+            color:white;
+            border-color: #adf175;
         }
 
         .social-box {
@@ -170,14 +172,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     <!-- here enchtype will basically allow me to use binary files as my input type:file for bazaar image -->
     <form action="add_bazaar.php" method="post" enctype="multipart/form-data">
-        Bazaar Name: <input type="text" name="bazaarName"><br>
-        Bazaar Location: <input type="text" name="bazaarLocation"><br>
-        Employee ID: <input type="text" name="employeeID"><br>
-        Bazaar Image: <input type="file" name="bazaarImage"><br>
-        <div style="text-align:center">
-            <button type="submit">ADD BAZAAR</button>
-        </div>
+    Bazaar Name: <input type="text" name="bazaarName" required><br>
+    Bazaar Location: <input type="text" name="bazaarLocation" required><br>
+    Employee ID: <input type="text" name="employeeID" required><br>
+    Bazaar Image: <input type="file" name="bazaarImage" required><br>
+    <div style="text-align:center">
+        <button type="submit">ADD BAZAAR</button>
+    </div>
     </form>
+
     
     <form action="delete_bazaar.php" method="post">
         Bazaar ID: <input type="text" name="bazaarID"><br>
@@ -185,7 +188,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             <button type="submit">DELETE BAZAAR</button>
         </div>
     </form>
-
 
     </div>
 
