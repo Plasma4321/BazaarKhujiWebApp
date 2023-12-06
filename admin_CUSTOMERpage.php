@@ -124,31 +124,32 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <?php
     include 'Connection.php';
     // SQL QUERY 
-    $query = "SELECT * FROM `customers`;"; 
+    $query = "SELECT customers.*, feedback.feedback_text FROM `customers` LEFT JOIN `feedback` ON customers.CustomerID = feedback.customerID;"; 
     // FETCHING DATA FROM DATABASE 
     $result = $conn->query($query); 
     
-        if ($result->num_rows > 0)  
+    if ($result->num_rows > 0)  
+    { 
+        echo "<table border='1'>";
+        echo "<tr><th>CustomerID</th><th>Name</th><th>Age</th><th>Email</th><th>PhoneNumber</th><th>customer_password</th><th>Feedback Text</th></tr>";
+        // OUTPUT DATA OF EACH ROW 
+        while($row = $result->fetch_assoc()) 
         { 
-            echo "<table border='1'>";
-            echo "<tr><th>CustomerID</th><th>Name</th><th>Age</th><th>Email</th><th>PhoneNumber</th><th>customer_password</th></tr>";
-            // OUTPUT DATA OF EACH ROW 
-            while($row = $result->fetch_assoc()) 
-            { 
-                echo "<tr><td>" . $row["CustomerID"]. 
-                "</td><td>" . $row["Name"].
-                "</td><td>" . $row["Age"]. 
-                "</td><td>" . $row["Email"].
-                "</td><td>" . $row["PhoneNumber"]. 
-                "</td><td>" . $row["customer_password"].
-                "</td></tr>"; 
-            } 
-            echo "</table>";
-        }  
-        else { 
-            echo "0 results"; 
+            echo "<tr><td>" . $row["CustomerID"]. 
+            "</td><td>" . $row["Name"].
+            "</td><td>" . $row["Age"]. 
+            "</td><td>" . $row["Email"].
+            "</td><td>" . $row["PhoneNumber"]. 
+            "</td><td>" . $row["customer_password"].
+            "</td><td>" . $row["feedback_text"].
+            "</td></tr>"; 
         } 
-    
+        echo "</table>";
+    }  
+    else { 
+        echo "0 results"; 
+    } 
+
     $conn->close(); 
     ?>
     
@@ -169,18 +170,33 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["deleteCustomerID"])) {
         $customerIDToDelete = $_POST["deleteCustomerID"];
     
-        // Performing the delete operation
-        $deleteQuery = "DELETE FROM `customers` WHERE CustomerID = $customerIDToDelete";
-        if ($conn->query($deleteQuery) === TRUE) {
-            echo "Employee with ID $customerIDToDelete deleted successfully.";
+        // Check if the customer ID exists in the database
+        $checkQuery = "SELECT * FROM `customers` WHERE CustomerID = $customerIDToDelete";
+        $checkResult = $conn->query($checkQuery);
+        if ($checkResult->num_rows == 0) {
+            echo "This customer ID does not exist in the database.";
         } else {
-            echo "Error deleting record: " . $conn->error;
+            // Delete feedback of the customer
+            $deleteFeedbackQuery = "DELETE FROM `feedback` WHERE customerID = $customerIDToDelete";
+            if ($conn->query($deleteFeedbackQuery) === TRUE) {
+                echo "Feedback of the customer with ID $customerIDToDelete deleted successfully.";
+            } else {
+                echo "Error deleting feedback: " . $conn->error;
+            }
+        
+            // Delete the customer
+            $deleteCustomerQuery = "DELETE FROM `customers` WHERE CustomerID = $customerIDToDelete";
+            if ($conn->query($deleteCustomerQuery) === TRUE) {
+                echo "Customer with ID $customerIDToDelete deleted successfully.";
+            } else {
+                echo "Error deleting customer: " . $conn->error;
+            }
         }
     }
 
     $conn->close();
-    
-    ?>
+?>
+
 </div>
 
 <footer>
