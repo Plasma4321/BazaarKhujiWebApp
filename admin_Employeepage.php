@@ -136,36 +136,36 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <?php
     include 'Connection.php';
     // SQL QUERY 
-    $query = "SELECT * FROM `market_representative` "; 
+    $query = "SELECT market_representative.*, bazaar.bazaarname FROM `market_representative` LEFT JOIN `bazaar` ON market_representative.EmployeeID = bazaar.EmployeeID;"; 
     // FETCHING DATA FROM DATABASE 
     $result = $conn->query($query); 
     
-        if ($result->num_rows > 0)  
+    if ($result->num_rows > 0)  
+    { 
+        echo "<table border='1'>";
+        echo "<tr><th>EmployeeID</th><th>Name</th><th>Age</th><th>Email</th><th>PhoneNumber</th><th>Salary</th><th>Bazaar Name</th><th>employee_password</th></tr>";
+        // OUTPUT DATA OF EACH ROW 
+        while($row = $result->fetch_assoc()) 
         { 
-            echo "<table border='1'>";
-            echo "<tr><th>EmployeeID</th><th>Name</th><th>Age</th><th>Email</th><th>PhoneNumber</th><th>Salary</th><th>Place</th><th>employee_password</th></tr>";
-            // OUTPUT DATA OF EACH ROW 
-            while($row = $result->fetch_assoc()) 
-            { 
-                echo "<tr><td>" . $row["EmployeeID"]. 
-                "</td><td>" . $row["Name"].
-                "</td><td>" . $row["Age"]. 
-                "</td><td>" . $row["Email"].
-                "</td><td>" . $row["PhoneNumber"]. 
-                "</td><td>" . $row["Salary"].
-                "</td><td>" . $row["Place"].
-                "</td><td>" . $row["employee_password"].
-
-                "</td></tr>"; 
-            } 
-            echo "</table>";
-        }  
-        else { 
-            echo "0 results"; 
+            echo "<tr><td>" . $row["EmployeeID"]. 
+            "</td><td>" . $row["Name"].
+            "</td><td>" . $row["Age"]. 
+            "</td><td>" . $row["Email"].
+            "</td><td>" . $row["PhoneNumber"]. 
+            "</td><td>" . $row["Salary"].
+            "</td><td>" . $row["bazaarname"].
+            "</td><td>" . $row["employee_password"].
+            "</td></tr>"; 
         } 
-    
+        echo "</table>";
+    }  
+    else { 
+        echo "0 results"; 
+    } 
+
     $conn->close(); 
     ?>
+
 
     </div>
     
@@ -193,15 +193,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <div style="display:flex;">
             <label for="salary">Salary:</label>
             <input type="text" id="salary" name="salary" required>
-            <label for="place">Designation:</label>
-            <input type="text" id="place" name="place" required>
-        </div>
-
-        <div style="display:flex;">
             <label for="phoneNumber">Phone Number:</label>
             <input type="text" id="phoneNumber" name="phoneNumber" required>
+        </div>
 
-            <button style=" " type="submit">Insert</button>
+        <div style="text-align:center;">
+            <button  type="submit">Insert</button>
         </div>
     </form>
     

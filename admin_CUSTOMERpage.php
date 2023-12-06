@@ -195,7 +195,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     }
 
     $conn->close();
-?>
+    ?>
 
 </div>
 

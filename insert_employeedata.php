@@ -10,12 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $phoneNumber = $_POST["phoneNumber"];
     $salary = $_POST["salary"];
-    $place = $_POST["place"];
     $employee_password = $_POST["employee_password"];
 
     // Insert data into the 'market_rep' table
-    $query = "INSERT INTO `market_representative` (Name, Age, Email, PhoneNumber, Salary, Place, employee_password)
-              VALUES ('$name', '$age', '$email', '$phoneNumber', '$salary', '$place', '$employee_password')";
+    $query = "INSERT INTO `market_representative` (Name, Age, Email, PhoneNumber, Salary, employee_password)
+              VALUES ('$name', '$age', '$email', '$phoneNumber', '$salary', '$employee_password')";
 
     if ($conn->query($query) === TRUE) {
         echo "New record created successfully";
