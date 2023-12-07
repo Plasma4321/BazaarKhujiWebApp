@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         body{
             margin: 0;
             text-align:center;
-            background-color:#cdf784;
+            background-color:#053262;
             
         }
         .LOGOSECTION{

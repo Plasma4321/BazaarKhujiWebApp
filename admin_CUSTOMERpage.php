@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body {
             margin: 0;
-            background-color:#cdf784;
+            background-color:#053262;
         }
 
         .LOGOSECTION {
@@ -27,7 +27,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
 
         nav {
-            background-color: #adf175;
+            background-color: #6CF1C4;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -51,7 +51,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
 
         .social-box {
-            background-color: #adf175;
+            background-color: #00FF84;
             text-align: center;
             padding: 20px 0;
             margin: 0;
@@ -62,7 +62,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
         .social-icon {
             font-size: 30px;
-            color: #ff0000;
+            color: #053262;
             margin: 0 20px;
             cursor: pointer;
             text-decoration: none;
@@ -99,7 +99,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
         button{
             padding: 6px;
-            background-color:#40e200; 
+            background-color:#6CF1C4; 
             border-radius:10px; 
             width:100px;
             color:white;
@@ -111,7 +111,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <title>AdminCustomer</title>
 
     <div class="LOGOSECTION">
-        <img src="FatBat.jpg" alt="LOGO" style="width: 200px; height: 150px;">
+        <img src="Logo.png" alt="LOGO" style="width: 200px; height: 150px;">
     </div>
     <nav>
         <ul>

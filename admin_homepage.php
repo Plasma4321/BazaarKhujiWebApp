@@ -18,14 +18,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body{
             margin: 0;
-            background-color:#cdf784;
+            background-color: #053262;
             
         }
         .LOGOSECTION{
             text-align: center;
         }
         nav {
-            background-color: #adf175;
+            background-color: #6CF1C4;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,7 +50,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
 
         .social-box {
-            background-color: #adf175;
+            background-color: #59F6B0;
             text-align: center; 
             padding: 20px 0;
             margin: 0;
@@ -58,16 +58,16 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
         .social-icon {
             font-size: 30px;
-            color: #ff0000;
+            color: #053262;
             margin: 0 20px;
             cursor: pointer;
             text-decoration: none;
         }
         .show{
-            background-color: #004f00;
+            background-color: #C7F6FF;
             padding: 20%;
             text-align:center;
-            color: #adf175;
+            color: black;
         }
     </style>
 
@@ -76,7 +76,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     
     <div class="LOGOSECTION">
-        <img src="FatBat.jpg" alt="LOGO" style="width: 200px; height: 150px;">
+        <img src="Logo.png" alt="LOGO" style="width: 200px; height: 150px;">
     </div>
     <nav>
         <ul>

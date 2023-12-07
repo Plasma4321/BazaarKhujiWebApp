@@ -18,13 +18,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <style>
         body{
             margin: 0;
-            background-color:#cdf784;
+            background-color:#053262;
         }
         .LOGOSECTION{
             text-align: center;
         }
         nav {
-            background-color: #adf175;
+            background-color: #6CF1C4;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -79,7 +79,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
         button{
             padding: 6px;
-            background-color:#40e200; 
+            background-color:#6CF1C4; 
             border-radius:10px; 
             width:100px;
             color:white;
@@ -87,15 +87,15 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         }
 
         .social-box {
-            background-color: #adf175;
-            text-align: center; 
+            background-color: #00FF84;
+            text-align: center;
             padding: 20px 0;
             margin: 0;
         }
 
         .social-icon {
             font-size: 30px;
-            color: #ff0000;
+            color: #053262;
             margin: 0 20px;
             cursor: pointer;
             text-decoration: none;
@@ -110,7 +110,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
     
     <div class="LOGOSECTION">
-        <img src="FatBat.jpg" alt="LOGO" style="width: 200px; height: 150px;">
+        <img src="Logo.png" alt="LOGO" style="width: 200px; height: 150px;">
     </div>
     <nav>
         <ul>
@@ -171,7 +171,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     ?>
 
     <!-- here enchtype will basically allow me to use binary files as my input type:file for bazaar image -->
-    <form action="add_bazaar.php" method="post" enctype="multipart/form-data">
+    <div style="text-align: center;">
+    <form action="add_bazaar.php" method="post" enctype="multipart/form-data" >
     Bazaar Name: <input type="text" name="bazaarName" required><br>
     Bazaar Location: <input type="text" name="bazaarLocation" required><br>
     Employee ID: <input type="text" name="employeeID" required><br>
@@ -186,9 +187,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         Bazaar ID: <input type="text" name="bazaarID"><br>
         <div style="text-align:center">
             <button type="submit">DELETE BAZAAR</button>
+            <br><br><br>
         </div>
     </form>
 
+    </div>
     </div>
 
 

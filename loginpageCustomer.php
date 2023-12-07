@@ -8,15 +8,15 @@ include "Connection.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <title>CUST LOGIN</title>
+    <title>CUSTOMER LOGIN</title>
 
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #4caf50;
-            color: cyan;
+            background-color: #053262;
+            color: #053262;
         }
         p{
             font-weight: bold;
@@ -30,7 +30,7 @@ include "Connection.php";
         }
 
         .form-container {
-            background-color: rgb(201, 43, 43);
+            background-color: #90F0CC;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -40,7 +40,7 @@ include "Connection.php";
 
         .form-container .form-image {
             flex: 1;
-            background: url('plasma.gif') center/cover no-repeat ;
+            background: url('hello-2488.gif') center/cover no-repeat ;
             position: relative;
         }
 
@@ -52,6 +52,7 @@ include "Connection.php";
         }
 
         .text_on_pic{
+            color: black;
             top: 10%;
             position: absolute;
             width: 100%;
@@ -88,7 +89,7 @@ include "Connection.php";
 
         .form-container button {
             margin: 1%;
-            background-color: #4caf50;
+            background-color: #053262;
             color: #fff;
             padding: 10px;
             border: none;

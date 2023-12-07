@@ -49,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             margin: 0;
             padding: 0;
-            background-color: #4caf50;
-            color: white;
+            background-color: #053262;
+            color: #053262;
         }
         p{
             font-weight: bold;
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .form-container {
-            background-color: rgb(201, 43, 43);
+            background-color: #90F0CC;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .form-container .form-image {
             flex: 1;
-            background: url('skull.gif') center/cover no-repeat ;
+            background: url('adminlogin.gif') center/cover no-repeat ;
             position: relative;
         }
 
@@ -86,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .text_on_pic{
+            color: black;
             top: 10%;
             position: absolute;
             width: 100%;
@@ -122,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .form-container button {
             margin: 1%;
-            background-color: #4caf50;
+            background-color: #053262;
             color: #fff;
             padding: 10px;
             border: none;
