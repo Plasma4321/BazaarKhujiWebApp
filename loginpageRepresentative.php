@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate the user credentials
     $query = "SELECT * FROM `market_representative` WHERE email = '$email' AND employee_password = '$password'";
     $result = mysqli_query($conn, $query);
+    $_SESSION['email']=$email;
 
     // Check for query execution success
     if ($result) {
