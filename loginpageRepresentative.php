@@ -1,6 +1,42 @@
 <?php
+session_start();
+
 include "Connection.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the user input
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    // Validate the user credentials
+    $query = "SELECT * FROM `market_representative` WHERE email = '$email' AND employee_password = '$password'";
+    $result = mysqli_query($conn, $query);
+
+    // Check for query execution success
+    if ($result) {
+        // Check if a row is returned, indicating valid credentials
+        if (mysqli_num_rows($result) > 0) {
+            // Set a session variable indicating the user is logged in
+            $_SESSION['loggedin'] = true;
+
+            // Redirect to representative homepage
+            header("Location: representativeHomepage.php");
+            exit();
+        } else {
+            // Invalid credentials
+            $error_message = "Invalid email or password";
+        }
+    } else {
+        // Query execution failed
+        $error_message = "Database error: " . mysqli_error($conn);
+    }
+}
 ?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,7 +188,7 @@ include "Connection.php";
                 <input type="email" id="email" name="email" required>
 
                 <label for="password">Password:</label>
-                <input type="text" id="password" name="password" required>
+                <input type="password" id="password" name="password" required>
 
                 <button type="submit">Submit</button>
             </form>
