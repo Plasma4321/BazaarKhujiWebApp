@@ -26,6 +26,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         .LOGOSECTION{
             text-align: center;
         }
+        h1{
+            color: #FFF5EE;
+            text-align: center;
+        }
         nav {
             background-color: #6CF1C4;
             display: flex;
@@ -71,6 +75,71 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             text-align:center;
             color: black;
         }
+
+        table {
+            width: 60%;
+            margin: auto; /* Center the table */
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        td{
+            color: #FFF5EE;
+        }
+
+        .changepprice {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .changepprice h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .changepprice label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .changepprice input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .changepprice button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .changepprice button:hover {
+        background-color: #45a049;
+    }
     </style>
 
 
