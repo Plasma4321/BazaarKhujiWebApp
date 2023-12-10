@@ -214,8 +214,16 @@ if ($employeeResult && mysqli_num_rows($employeeResult) > 0) {
     <!-- VIEWING SCRIPT -->
     <?php
     include 'Connection.php';
-    // SQL QUERY 
-    $query = "SELECT productID, productName, productPrice, productPicture FROM `product`;"; 
+    // SQL QUERY  
+    $query = "SELECT productID, productName, productPrice, productPicture 
+    FROM
+        product p
+    JOIN
+        bazaar b ON p.bazaarID = b.bazaarID
+    JOIN
+        market_representative m ON b.EmployeeID = m.EmployeeID
+    WHERE
+        m.Email = '$email';"; 
     // FETCHING DATA FROM DATABASE 
     $result = $conn->query($query); 
     
