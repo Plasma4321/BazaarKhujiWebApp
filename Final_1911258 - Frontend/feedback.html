@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-wMz1ScI0P4FdB+WzKCAq4FqA0B/D3YbZcwSpMMmYFAdgtP2uN0CvAZge5HKJoS5wDkWgNO4pvjF8Wx3bIjz1Lg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="feedback.css">
+    <title>BazarKhuji</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Please Give Your Feedback!!!</h1>
+        <form action="contact.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-map-marker-alt"></i> 27,Dhanmondi, Dhaka-1216</p>
+            <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+            <p><i class="fas fa-envelope"></i> info@maruf.com</p>
+            
+        </div>
+    </div>
+</body>
+
+</html>
