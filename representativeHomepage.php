@@ -26,6 +26,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         .LOGOSECTION{
             text-align: center;
         }
+        h1{
+            color: #FFF5EE;
+            text-align: center;
+        }
         nav {
             background-color: #6CF1C4;
             display: flex;
@@ -71,6 +75,71 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             text-align:center;
             color: black;
         }
+
+        table {
+            width: 60%;
+            margin: auto; /* Center the table */
+            border-collapse: collapse;
+            margin-bottom: 50px;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        td{
+            color: #FFF5EE;
+        }
+
+        .changepprice {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .changepprice h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .changepprice label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    .changepprice input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .changepprice button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .changepprice button:hover {
+        background-color: #45a049;
+    }
     </style>
 
 
@@ -138,7 +207,69 @@ if ($employeeResult && mysqli_num_rows($employeeResult) > 0) {
 }
 ?>
 
+<div >
 
+    <h2 style="text-align:center;">EMPLOYEE TABLE</h2>
+
+    <!-- VIEWING SCRIPT -->
+    <?php
+    include 'Connection.php';
+    // SQL QUERY 
+    $query = "SELECT productID, productName, productPrice, productPicture FROM `product`;"; 
+    // FETCHING DATA FROM DATABASE 
+    $result = $conn->query($query); 
+    
+    if ($result->num_rows > 0)  
+    { 
+        echo "<table border='1'>";
+        echo "<tr><th>Product ID</th><th>Product Name</th><th>Product Price</th><th>Product Picture</th></tr>";
+        // OUTPUT DATA OF EACH ROW 
+        while($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row["productID"]. "</td>
+                    <td>" . $row["productName"]. "</td>
+                    <td>" . $row["productPrice"]. "</td>
+                    <td><img src='" . $row["productPicture"]. "' alt='Product Image' width='200' height='150'></td>
+                  </tr>";
+        }
+        
+        echo "</table>";
+    }
+    else { 
+        echo "0 results"; 
+    } 
+
+    $conn->close(); 
+    ?>
+
+
+    </div>
+
+    <?php
+        include 'update_pprice.php'; // Include the file containing the update logic
+    ?>
+
+    <div class="changepprice">
+         <!-- FORM FOR UPDATING PRODUCT PRICE -->
+         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <h3>Change Product Price:</h3>
+            <label for="productId">Product ID:</label>
+            <input type="text" name="productId" required>
+
+            <label for="newPrice">New Price:</label>
+            <input type="text" name="newPrice" required>
+
+            <button type="submit" name="changePrice">Change</button>
+        </form>
+    </div>
+
+    <script>
+    // JavaScript to reload the page after form submission
+    <?php if (isset($_POST["changePrice"])) : ?>
+        // Check if the form was submitted and refresh the page
+        window.location.href = window.location.pathname + window.location.search + window.location.hash;
+    <?php endif; ?>
+</script>
 
  </body>
 
