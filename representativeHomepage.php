@@ -263,7 +263,13 @@ if ($employeeResult && mysqli_num_rows($employeeResult) > 0) {
         </form>
     </div>
 
-
+    <script>
+    // JavaScript to reload the page after form submission
+    <?php if (isset($_POST["changePrice"])) : ?>
+        // Check if the form was submitted and refresh the page
+        window.location.href = window.location.pathname + window.location.search + window.location.hash;
+    <?php endif; ?>
+</script>
 
  </body>
 
