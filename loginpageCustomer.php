@@ -1,5 +1,8 @@
 <?php
+
 include "Connection.php";
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,7 +156,7 @@ include "Connection.php";
 
             <div id="loginForm" style="display:none">
             <h2>Login</h2>
-            <form action="/submit_login" method="post">
+            <form action="customer_login.php" method="post">
                 Email:<br>
                 <input type="text" name="email"><br>
                 Password:<br>
