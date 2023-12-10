@@ -176,6 +176,26 @@ if ($employeeResult && mysqli_num_rows($employeeResult) > 0) {
 
     </div>
 
+    <?php
+        include 'update_pprice.php'; // Include the file containing the update logic
+    ?>
+
+    <div class="changepprice">
+         <!-- FORM FOR UPDATING PRODUCT PRICE -->
+         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <h3>Change Product Price:</h3>
+            <label for="productId">Product ID:</label>
+            <input type="text" name="productId" required>
+
+            <label for="newPrice">New Price:</label>
+            <input type="text" name="newPrice" required>
+
+            <button type="submit" name="changePrice">Change</button>
+        </form>
+    </div>
+
+
+
  </body>
 
  <footer>
