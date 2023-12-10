@@ -138,7 +138,43 @@ if ($employeeResult && mysqli_num_rows($employeeResult) > 0) {
 }
 ?>
 
+<div >
 
+    <h2 style="text-align:center;">EMPLOYEE TABLE</h2>
+
+    <!-- VIEWING SCRIPT -->
+    <?php
+    include 'Connection.php';
+    // SQL QUERY 
+    $query = "SELECT productID, productName, productPrice, productPicture FROM `product`;"; 
+    // FETCHING DATA FROM DATABASE 
+    $result = $conn->query($query); 
+    
+    if ($result->num_rows > 0)  
+    { 
+        echo "<table border='1'>";
+        echo "<tr><th>Product ID</th><th>Product Name</th><th>Product Price</th><th>Product Picture</th></tr>";
+        // OUTPUT DATA OF EACH ROW 
+        while($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>" . $row["productID"]. "</td>
+                    <td>" . $row["productName"]. "</td>
+                    <td>" . $row["productPrice"]. "</td>
+                    <td><img src='" . $row["productPicture"]. "' alt='Product Image' width='200' height='150'></td>
+                  </tr>";
+        }
+        
+        echo "</table>";
+    }
+    else { 
+        echo "0 results"; 
+    } 
+
+    $conn->close(); 
+    ?>
+
+
+    </div>
 
  </body>
 
