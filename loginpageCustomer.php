@@ -164,7 +164,7 @@ include "Connection.php";
 
             <div id="registerForm" style="display:none">
             <h2>Register</h2>
-            <form action="/submit_register" method="post">
+            <form action="submit_register.php" method="post">
                 Name:
                 <input type="text" name="name">
                 Age:
